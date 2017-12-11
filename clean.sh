@@ -2,16 +2,19 @@
 INFILE=$1
 OUTFILE=$2
 
-cat $INFILE | sed 's/^[ \t]*//;s/[ \t]*$//'                       `# strip whitespace from beginning and end` \
-            | awk '{print tolower($0)}'                           `# switch to all lowercase` \
-	    | tr -cd '\000-\177'                                  `# remove funky chars like smartquotes, TM` \
-            | sed -r "s/([a-z']* [a-z']* [a-z']*)(, )/\1"\\n"/g"  `# split long lines that have a comma*` \
-	    | sed -r "s/([a-z]*)(-)/\1 /g"                        `# change hyphens to spaces` \
-            | tr -d '[:punct:]'                                   `# remove punctuation` \
-	    | sed "s/ \+/ /g"                                     `# combine multiple spaces into one` \
-	    | grep ' '                                            `# look for phrases, not words` \
-	    | awk 'length($0)<36 && length($0)>4'                 `# keep lines between 5 and 35 characters` \
-	    | sort | uniq                                         `# sort and remove duplicates` \
+# It might be worth running this script twice. :)
+
+cat $INFILE | sed 's/^[ \t]*//;s/[ \t]*$//'                               `# strip whitespace from beginning and end` \
+            | awk '{print tolower($0)}'                                   `# switch to all lowercase` \
+	    | awk -niord '{printf RT?$0chr("0x"substr(RT,2)):$0}' RS=%..  `# remove url encoding` \
+	    | tr -cd '\000-\177'                                          `# remove funky chars like smartquotes, TM` \
+            | sed -r "s/([a-z']* [a-z']* [a-z']*)(, )/\1"\\n"/g"          `# split long lines that have a comma*` \
+	    | sed -r "s/([a-z]*)([_-])/\1 /g"                             `# change hyphens & underscores to spaces` \
+            | tr -d '[:punct:]'                                           `# remove punctuation` \
+	    | sed "s/ \+/ /g"                                             `# combine multiple spaces into one` \
+	    | grep ' '                                                    `# look for phrases, not words` \
+	    | awk 'length($0)<36 && length($0)>4'                         `# keep lines between 5 and 35 characters` \
+	    | sort | uniq                                                 `# sort and remove duplicates` \
   >> ./$OUTFILE
 
 

@@ -21,6 +21,7 @@ So far, I've scraped the following: <br>
 - "Titles" from the [IMDB dataset](https://www.kaggle.com/orgesleka/imdbmovies) on Kaggle.
 - [Quotables](https://www.kaggle.com/alvations/quotables) dataset on Kaggle.
 - [MemeTracker](https://www.kaggle.com/snap/snap-memetracker) dataset from Kaggle.
+- [Wikipedia Article Titles](https://www.kaggle.com/residentmario/wikipedia-article-titles) dataset from Kaggle.
 - A few random "top phrases / top quotes" sites
 
 # Cleaning sources
