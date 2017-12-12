@@ -3,7 +3,7 @@ This is a project to build a massive wordlist using passphrases for cracking pas
 
 **For Cracking: You need only the "passphrases" file**
 
-I'd recommend combining with Hashcat rules like [Hob064](https://github.com/praetorian-inc/Hob0Rules).
+I'd recommend combining with Hashcat rules like [Hob0](https://github.com/praetorian-inc/Hob0Rules) or [OneRule](https://github.com/NotSoSecure/password_cracking_rules).
 
 # Sources Used
 So far, I've scraped the following: <br>
