@@ -5,7 +5,7 @@ OUTFILE=$2
 # It might be worth running this script twice. :)
 
 cat $INFILE \
-    | sed -r "s/([a-zA-Z]* [a-zA-Z]* [a-zA-Z]*)([,.] )/\1\\n/g"  `# Split up longer lines` \
+    | sed -r "s/([a-zA-Z]* [a-zA-Z]* [a-zA-Z]*)([,.] )/\1\\n/g"  `# Split up longer lines containing , or .` \
     | sed -e "s/^[ \t]*//;s/[ \t]*$//"                           `# strip whitespace from beginning and end` \
           -e "s/\(.*\)/\L\1/"                                    `# switch to lowercase` \
           -e "s/[-_]/ /g"                                        `# change hyphens & underscores to spaces` \
