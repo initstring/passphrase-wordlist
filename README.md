@@ -3,13 +3,6 @@ This is a project to build a massive wordlist using passphrases for cracking pas
 
 **For Cracking: You need only the "passphrases" file**
 
-My list will have the following rules:
-- 5 characters or more
-- 40 characters or less
-- at least one space (making it a phrase, not a single word)
-- transform hyphens into spaces
-- remove other punctuation
-
 I'd recommend combining with Hashcat rules like [Hob064](https://github.com/praetorian-inc/Hob0Rules).
 
 # Sources Used
