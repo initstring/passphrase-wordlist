@@ -1,9 +1,9 @@
 # Overview
 This is a project to build a massive wordlist using passphrases for cracking password hashes. Most of the wordlists I know of (rockyou, exploitin, crackstation, etc) contain single-word passwords. People are getting smarter and using phrases instead.
 
-**For Cracking: You need only the "passphrases" file**
+**For Cracking: You need only the "passphrases" file.** This is stored in Git Large File Storage (glfs), so download via the [raw link](https://github.com/initstring/passphrase-cracker/blob/master/passphrases.glfs?raw=true) or use git clone if you have the glfs extensions installed.
 
-I'd recommend combining with Hashcat rules like [Hob0](https://github.com/praetorian-inc/Hob0Rules) or [OneRule](https://github.com/NotSoSecure/password_cracking_rules).
+I'm also included a hashcat rule file that seems to make sense for passphrases. You can combine it with another rule list like [Hob0](https://github.com/praetorian-inc/Hob0Rules) or [OneRule](https://github.com/NotSoSecure/password_cracking_rules).
 
 # Sources Used
 So far, I've scraped the following: <br>
