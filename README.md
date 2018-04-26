@@ -21,23 +21,23 @@ So far, I've scraped the following: <br>
 Check out the script [clean.sh](https://github.com/initstring/passphrase-wordlist/blob/master/clean.sh) to see how I've cleaned the raw sources. You can find the pre-cleaned data [here](https://github.com/initstring/passphrase-wordlist/tree/master/raw-sources).
 
 # Hashcat Rules
-Given the phrase `one fish two fish red fish blue fish` the hashcat rules will output the following:
+Given the phrase `take the red pill` the hashcat rules will output the following:
 ```
-one fish two fish red fish blue fish
-one-fish-two-fish-red-fish-blue-fish
-one.fish.two.fish.red.fish.blue.fish
-one,fish,two,fish,red,fish,blue,fish
-one_fish_two_fish_red_fish_blue_fish
-onefishtwofishredfishbluefish
-One fish two fish red fish blue fish
-ONE FISH TWO FISH RED FISH BLUE FISH
-oNE FISH TWO FISH RED FISH BLUE FISH
-One Fish Two Fish Red Fish Blue Fish
-OneFishTwoFishRedFishBlueFish
-One-Fish-Two-Fish-Red-Fish-Blue-Fish
-One.Fish.Two.Fish.Red.Fish.Blue.Fish
-One,Fish,Two,Fish,Red,Fish,Blue,Fish
-One_Fish_Two_Fish_Red_Fish_Blue_Fish
+take the red pill
+take-the-red-pill
+take.the.red.pill
+take,the,red,pill
+take_the_red_pill
+taketheredpill
+Take the red pill
+TAKE THE RED PILL
+tAKE THE RED PILL
+Take The Red Pill
+TakeTheRedPill
+Take-The-Red-Pill
+Take.The.Red.Pill
+Take,The,Red,Pill
+Take_The_Red_Pill
 ```
 
 A great thing about hashcat is that you can feed it two rule files. So, if you want to also get fancy with adding numbers at the end, swapping l33tsp33k in, etc, simply add another `-r` AFTER supplying this rule.
