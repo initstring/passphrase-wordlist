@@ -32,6 +32,9 @@ taketheredpill
 Take the red pill
 TAKE THE RED PILL
 tAKE THE RED PILL
+Taketheredpill
+tAKETHEREDPILL
+TAKETHEREDPILL
 Take The Red Pill
 TakeTheRedPill
 Take-The-Red-Pill
