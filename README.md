@@ -43,6 +43,9 @@ Take,The,Red,Pill
 Take_The_Red_Pill
 ```
 
-A great thing about hashcat is that you can feed it two rule files. So, if you want to also get fancy with adding numbers at the end, swapping l33tsp33k in, etc, simply add another `-r` AFTER supplying this rule.
+A great thing about hashcat is that you can feed it two rule files. So, if you want to also get fancy with adding numbers at the end, swapping l33tsp33k in, etc, simply add another `-r` AFTER supplying this rule. So you can end up with some pretty interesting candidates, like this:
+```
+Tak3Th3R3dPill
+```
 
 Enjoy!
