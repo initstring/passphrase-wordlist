@@ -18,7 +18,7 @@ So far, I've scraped the following: <br>
 - A few random "top phrases / top quotes" sites
 
 # Cleaning sources
-Check out the script [clean.sh](https://github.com/initstring/passphrase-cracker/blob/master/clean.sh) to see how I've cleaned the raw sources. You can find the pre-cleaned data [here](https://github.com/initstring/passphrase-cracker/tree/master/raw-sources).
+Check out the script [clean.sh](https://github.com/initstring/passphrase-wordlist/blob/master/clean.sh) to see how I've cleaned the raw sources. You can find the pre-cleaned data [here](https://github.com/initstring/passphrase-wordlist/tree/master/raw-sources).
 
 # Hashcat Rules
 Given the phrase `one fish two fish red fish blue fish` the hashcat rules will output the following:
