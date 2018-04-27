@@ -1,9 +1,19 @@
 # Overview
-This is a project to build a massive wordlist using passphrases for cracking password hashes. Most of the wordlists I know of (rockyou, exploitin, crackstation, etc) contain single-word passwords. People are getting smarter and using phrases instead.
+People think they are getting smarter by using passphrases. Let's prove them wrong!
 
-**For Cracking: You need only the "passphrases" file.** This is stored in Git Large File Storage (glfs), so download via <a download href="https://github.com/initstring/passphrase-wordlist/raw/master/passphrases.txt">this link</a> or use git clone if you have the glfs extensions installed.
+This project includes a massive wordlist of common phrases and two hashcat rule files for GPU-based cracking. I wrote the rules specifically in a way I think people might transform passphrases, as opposed to most sets out there made for shorter passwords.
 
-I've also included a hashcat rule file that seems to make sense for passphrases. You can combine it with another rule list like [Hob0](https://github.com/praetorian-inc/Hob0Rules) or [OneRule](https://github.com/NotSoSecure/password_cracking_rules).
+**The `passphrases.txt` file is stored in Git Large File Storage (glfs)**, so download via <a download href="https://github.com/initstring/passphrase-wordlist/raw/master/passphrases.txt">this link</a> or use git clone if you have the glfs extensions installed.
+
+The first hashcat rule (rule1.hashcat) does simple formats on the phrase. The second rule (rule2.hashcat) gets a bit trickier. You should use them both in one command for the best results.
+
+You can also try combining rule1.hashcat with some popular rule sets like [Hob0](https://github.com/praetorian-inc/Hob0Rules) or [OneRule](https://github.com/NotSoSecure/password_cracking_rules).
+
+Here is an example for NTLMv2 hashes:
+
+```
+hashcat64.bin -a 0 -m 5600 hashes.txt passphrases.txt -r rule1.hashcat -r rule2.hashcat -O -w 2
+```
 
 # Sources Used
 So far, I've scraped the following: <br>
@@ -21,7 +31,7 @@ So far, I've scraped the following: <br>
 Check out the script [clean.sh](https://github.com/initstring/passphrase-wordlist/blob/master/clean.sh) to see how I've cleaned the raw sources. You can find the pre-cleaned data [here](https://github.com/initstring/passphrase-wordlist/tree/master/raw-sources).
 
 # Hashcat Rules
-Given the phrase `take the red pill` the hashcat rules will output the following:
+Given the phrase `take the red pill` the first hashcat rule will output the following
 ```
 take the red pill
 take-the-red-pill
@@ -43,9 +53,18 @@ Take,The,Red,Pill
 Take_The_Red_Pill
 ```
 
+<<<<<<< HEAD
+Adding in the second hashcat rule makes things get a bit more interesting. That will return a huge list per candidate. Here are a couple examples:
+
+```
+T@k3Th3R3dPill!
+T@ke-The-Red-Pill
+Take The Red Pill 2020!
+=======
 A great thing about hashcat is that you can feed it two rule files. So, if you want to also get fancy with adding numbers at the end, swapping l33tsp33k in, etc, simply add another `-r` AFTER supplying this rule. So you can end up with some pretty interesting candidates, like this:
 ```
 Tak3Th3R3dPill
+>>>>>>> cbfbf842f92f3c801cfa52b4fb2c9bab0217a635
 ```
 
 Enjoy!
