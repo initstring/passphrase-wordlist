@@ -53,18 +53,13 @@ Take,The,Red,Pill
 Take_The_Red_Pill
 ```
 
-<<<<<<< HEAD
 Adding in the second hashcat rule makes things get a bit more interesting. That will return a huge list per candidate. Here are a couple examples:
 
 ```
 T@k3Th3R3dPill!
 T@ke-The-Red-Pill
-Take The Red Pill 2020!
-=======
-A great thing about hashcat is that you can feed it two rule files. So, if you want to also get fancy with adding numbers at the end, swapping l33tsp33k in, etc, simply add another `-r` AFTER supplying this rule. So you can end up with some pretty interesting candidates, like this:
-```
-Tak3Th3R3dPill
->>>>>>> cbfbf842f92f3c801cfa52b4fb2c9bab0217a635
+taketheredpill2020!
+T0KE THE RED PILL (unintentional humor)
 ```
 
 Enjoy!
