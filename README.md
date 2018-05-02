@@ -5,9 +5,7 @@ This project includes a wordlist of common phrases and two hashcat rule files fo
 
 The 'passphrases.txt' file is stored in Git Large File Storage (GLFS), so **download via <a download href="https://github.com/initstring/passphrase-wordlist/raw/master/passphrases.txt">this link</a>** or use git if you known what you're doing with GLFS.
 
-The first hashcat rule 'rule1.hashcat' does simple formats on the phrase. The second rule 'rule2.hashcat' gets a bit trickier. You should use them both in one command for the best results.
-
-You can also try combining rule1.hashcat with some popular rule sets like [Hob0](https://github.com/praetorian-inc/Hob0Rules) or [OneRule](https://github.com/NotSoSecure/password_cracking_rules).
+Use both rules for best results.
 
 Here is an example for NTLMv2 hashes:
 
