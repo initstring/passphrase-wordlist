@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import sys
 if not sys.version_info[:2] >= (3, 4):
     print("Please get with the times and use Python 3.4+")
@@ -20,13 +23,19 @@ def escape_encoding(line):
     line = re.sub('\s+', ' ', line).strip()         # Remove extra whitespace
     line = line.lower()                             # convert to lowercase
     line = re.sub(r'[-_]', ' ', line)               # Change - and _ to spaces
+    line = re.sub("[àáâãäå]", 'a', line)            # These lines remove common accents
+    line = re.sub("[èéêë]", 'e', line)
+    line = re.sub("[ìíîï]", 'i', line)
+    line = re.sub("[òóôõö]", 'o', line)
+    line = re.sub("[ùúûü]", 'u', line)
+    line = re.sub("[ñ]", 'n', line)
     return line
 
 def choose_candidates(line):
     match = re.compile('[a-z]..')
     if ' ' not in line and not match.search(line):  # Choose lines only that contain a space and sequential letters 
         return False
-    if len(line) < 8 or len(line) > 60:             # Throw out really long lines / parapgrahs not split earlier
+    if len(line) < 8 or len(line) > 50:             # Throw out really long lines / parapgrahs not split earlier
         return False
     return line
 
