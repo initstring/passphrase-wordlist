@@ -20,11 +20,11 @@ So far, I've scraped the following: <br>
 - Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://github.com/initstring/lyricpass).
 - Movie titles and lines from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html).
 - "Titles" from the [IMDB dataset](https://www.kaggle.com/orgesleka/imdbmovies) on Kaggle.
+- [Global POI dataset](http://download.geonames.org/export/dump/) using the 'allCountries' file.
 - [Quotables](https://www.kaggle.com/alvations/quotables) dataset on Kaggle.
 - [MemeTracker](https://www.kaggle.com/snap/snap-memetracker) dataset from Kaggle.
 - [Wikipedia Article Titles](https://www.kaggle.com/residentmario/wikipedia-article-titles) dataset from Kaggle.
 - [1,800 English Phrases](https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html)
-- [Reddit sarcasm](https://www.kaggle.com/danofer/sarcasm) dataset on Kaggle.
 - [2016 US Presidential Debates](https://www.kaggle.com/kinguistics/2016-us-presidential-primary-debates) dataset on Kaggle.
 
 # Cleaning sources

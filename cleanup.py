@@ -33,25 +33,25 @@ def escape_encoding(line):
 
 def choose_candidates(line):
     match = re.compile('[a-z]..')
-    if ' ' not in line and not match.search(line):  # Choose lines only that contain a space and sequential letters 
+    if ' ' not in line or not match.search(line):  # Choose lines only that contain a space and sequential letters 
         return False
-    if len(line) < 8 or len(line) > 50:             # Throw out really long lines / parapgrahs not split earlier
+    elif len(line) < 8 or len(line) > 50:           # Throw out really long lines / parapgrahs not split earlier
         return False
-    return line
+    else:
+        return True
 
 def split_lines(line):
     newLines = []
-    match = re.compile('{\B[a-z]\B }2')             # Match phrases with 3 words before comma
     if '.' in line:
         for l in line.split('.'):                   # Split lines with a period into multiple phrases
-            newLines.append(l.strip())
+            newLines.append(l)
     else:
         newLines.append(line)
     for l in newLines:
-        if "," in l:#match.search(line):
+        if "," in l:
             newLines.remove(l)
             for i in l.split(','):
-                newLines.append(i.strip())
+                newLines.append(i)
     return newLines
 
 
@@ -78,12 +78,11 @@ def build_buffer(inFile):
             line = escape_encoding(line)            # Remove HTML and URL encoding first
             if ',' in line or '.' in line:          # Split up lines with , or .
                 for l in split_lines(line):
-                    candidates.append(l)            # We might have multiple items now due to splitting
+                    candidates.append(l.strip())            # We might have multiple items now due to splitting
             else:
-                candidates.append(line)             # Or we may have just a single item
+                candidates.append(line.strip())             # Or we may have just a single item
             for string in candidates:
-                if choose_candidates(string):
-                    buffer.append(string)           # These are the items we want to work with, they go in memory
+                buffer.append(string)              # These are the items we want to work with, they go in memory
     return buffer
 
 
@@ -95,7 +94,8 @@ def main():
     for phrase in buffer:                           # Processes phrases and adds to a set (deduped)
         newPhrases = handle_punctuation(phrase)
         for phrase in newPhrases:
-            final.add(phrase)
+            if choose_candidates(phrase):
+                final.add(phrase)
     write_file(final, outFile)                      # Writes final set out to file
     print("Wrote to " + outFile + ": " + str((int(os.path.getsize(outFile)/1000000))) + " MB")
     elapsed = (time.time() - start)
