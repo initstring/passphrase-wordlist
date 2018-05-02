@@ -1,7 +1,7 @@
 # Overview
 People think they are getting smarter by using passphrases. Let's prove them wrong!
 
-This project includes a wordlist of common phrases and two hashcat rule files for GPU-based cracking.
+This project includes a massive wordlist of phrases and two hashcat rule files for GPU-based cracking.
 
 The 'passphrases.txt' file is stored in Git Large File Storage (GLFS), so **download via <a download href="https://github.com/initstring/passphrase-wordlist/raw/master/passphrases.txt">this link</a>** or use git if you known what you're doing with GLFS.
 
