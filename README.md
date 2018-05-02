@@ -7,10 +7,10 @@ The 'passphrases.txt' file is stored in Git Large File Storage (GLFS), so **down
 
 Use both rules for best results.
 
-Here is an example for NTLMv2 hashes:
+Here is an example for NTLMv2 hashes: If you use the `-O` option, watch out for what the maximum password length is set to - it may be too short.
 
 ```
-hashcat64.bin -a 0 -m 5600 hashes.txt passphrases.txt -r rule1.hashcat -r rule2.hashcat -O -w 2
+hashcat64.bin -a 0 -m 5600 hashes.txt passphrases.txt -r rule1.hashcat -r rule2.hashcat -w 3
 ```
 
 # Sources Used
