@@ -28,7 +28,7 @@ So far, I've scraped the following: <br>
 - [2016 US Presidential Debates](https://www.kaggle.com/kinguistics/2016-us-presidential-primary-debates) dataset on Kaggle.
 
 # Cleaning sources
-Check out the script [cleanup.py](https://github.com/initstring/passphrase-wordlist/blob/master/cleanup.py) to see how I've cleaned the raw sources. You can find the pre-cleaned data [here](https://github.com/initstring/passphrase-wordlist/tree/master/raw-sources).
+Check out the script [cleanup.py](https://github.com/initstring/passphrase-wordlist/blob/master/cleanup.py) to see how I've cleaned the raw sources. I will post a link to the hosted raw sources soon. I had to take them down after the Reddit post killed my quota. :) 
 
 # Hashcat Rules
 Given the phrase `take the red pill` the first hashcat rule will output the following
