@@ -25,10 +25,12 @@ So far, I've scraped the following: <br>
 - [Quotables](https://www.kaggle.com/alvations/quotables) dataset on Kaggle.
 - [MemeTracker](https://www.kaggle.com/snap/snap-memetracker) dataset from Kaggle.
 - [Wikipedia Article Titles](https://www.kaggle.com/residentmario/wikipedia-article-titles) dataset from Kaggle.
-- A few random "top phrases / top quotes" sites
+- [1,800 English Phrases](https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html)
+- [Reddit sarcasm](https://www.kaggle.com/danofer/sarcasm) dataset on Kaggle.
+- [2016 US Presidential Debates](https://www.kaggle.com/kinguistics/2016-us-presidential-primary-debates) dataset on Kaggle.
 
 # Cleaning sources
-Check out the script [clean.sh](https://github.com/initstring/passphrase-wordlist/blob/master/clean.sh) to see how I've cleaned the raw sources. You can find the pre-cleaned data [here](https://github.com/initstring/passphrase-wordlist/tree/master/raw-sources).
+Check out the script [cleanup.py](https://github.com/initstring/passphrase-wordlist/blob/master/cleanup.py) to see how I've cleaned the raw sources. You can find the pre-cleaned data [here](https://github.com/initstring/passphrase-wordlist/tree/master/raw-sources).
 
 # Hashcat Rules
 Given the phrase `take the red pill` the first hashcat rule will output the following
