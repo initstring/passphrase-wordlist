@@ -1,11 +1,11 @@
 # Overview
 People think they are getting smarter by using passphrases. Let's prove them wrong!
 
-This project includes a massive wordlist of common phrases and two hashcat rule files for GPU-based cracking. I wrote the rules specifically in a way I think people might transform passphrases, as opposed to most sets out there made for shorter passwords.
+This project includes a wordlist of common phrases and two hashcat rule files for GPU-based cracking.
 
-**The `passphrases.txt` file is stored in Git Large File Storage (glfs)**, so download via <a download href="https://github.com/initstring/passphrase-wordlist/raw/master/passphrases.txt">this link</a> or use git clone if you have the glfs extensions installed.
+The 'passphrases.txt' file is stored in Git Large File Storage (GLFS), so **download via <a download href="https://github.com/initstring/passphrase-wordlist/raw/master/passphrases.txt">this link</a>** or use git if you known what you're doing with GLFS.
 
-The first hashcat rule (rule1.hashcat) does simple formats on the phrase. The second rule (rule2.hashcat) gets a bit trickier. You should use them both in one command for the best results.
+The first hashcat rule 'rule1.hashcat' does simple formats on the phrase. The second rule 'rule2.hashcat' gets a bit trickier. You should use them both in one command for the best results.
 
 You can also try combining rule1.hashcat with some popular rule sets like [Hob0](https://github.com/praetorian-inc/Hob0Rules) or [OneRule](https://github.com/NotSoSecure/password_cracking_rules).
 
