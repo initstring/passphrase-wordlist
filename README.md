@@ -10,7 +10,7 @@ Use both rules for best results.
 Here is an example for NTLMv2 hashes: If you use the `-O` option, watch out for what the maximum password length is set to - it may be too short.
 
 ```
-hashcat64.bin -a 0 -m 5600 hashes.txt passphrases.txt -r rule1.hashcat -r rule2.hashcat -w 3
+hashcat64.bin -a 0 -m 5600 hashes.txt passphrases.txt -r rule1.rule -r rule2.rule -w 3
 ```
 
 # Sources Used
