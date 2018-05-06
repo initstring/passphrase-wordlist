@@ -3,7 +3,7 @@ People think they are getting smarter by using passphrases. Let's prove them wro
 
 This project includes a massive wordlist of phrases (17,737,982) and two hashcat rule files for GPU-based cracking.
 
-The 'passphrases.txt' file is stored in Git Large File Storage (GLFS), so **download via <a download href="https://github.com/initstring/passphrase-wordlist/raw/master/passphrases.txt">this link</a>** or use git if you known what you're doing with GLFS.
+Passphrase wordlist and raw data sources are available to **[DOWNLOAD HERE](https://spideroak.com/browse/share/initstring/public/passphrase-wordlist/)**
 
 Use both rules for best results.
 
