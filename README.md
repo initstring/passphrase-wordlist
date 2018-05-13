@@ -5,6 +5,8 @@ This project includes a massive wordlist of phrases (17,737,982) and two hashcat
 
 Passphrase wordlist and raw data sources are available to **[DOWNLOAD HERE](https://spideroak.com/browse/share/initstring/public/passphrase-wordlist/)**
 
+Alternatively, try downloading just the passphrases text file via [this torrent](https://github.com/initstring/passphrase-wordlist/blob/master/passphrases.txt.torrent). This is experimental and will become the standard delivery method if it goes well. Please seed!
+
 Use both rules for best results.
 
 Here is an example for NTLMv2 hashes: If you use the `-O` option, watch out for what the maximum password length is set to - it may be too short.
