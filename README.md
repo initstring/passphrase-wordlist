@@ -3,11 +3,11 @@ People think they are getting smarter by using passphrases. Let's prove them wro
 
 This project includes a massive wordlist of phrases (17,737,982) and two hashcat rule files for GPU-based cracking.
 
-Passphrase wordlist and raw data sources are available to **[DOWNLOAD HERE](https://spideroak.com/browse/share/initstring/public/passphrase-wordlist/)**
+Passphrase wordlist and raw data sources are available to download via the torrent files **[here](https://github.com/initstring/passphrase-wordlist)**.
 
-Alternatively, try downloading just the passphrases text file via [this torrent](https://github.com/initstring/passphrase-wordlist/blob/master/passphrases.txt.torrent). This is experimental and will become the standard delivery method if it goes well. Please seed!
+If you cannot download via the torrents, try [here](https://spideroak.com/browse/share/initstring/public/passphrase-wordlist/)
 
-Use both rules for best results.
+Use both [rules](https://github.com/initstring/passphrase-wordlist/hashcat-rules) for best results.
 
 Here is an example for NTLMv2 hashes: If you use the `-O` option, watch out for what the maximum password length is set to - it may be too short.
 
