@@ -32,6 +32,16 @@ So far, I've scraped the following: <br>
 # Cleaning sources
 Check out the script [cleanup.py](https://github.com/initstring/passphrase-wordlist/blob/master/cleanup.py) to see how I've cleaned the raw sources. 
 
+It works like this:
+
+```
+$ python3.6 cleanup.py infile.txt outfile.txt
+Reading from ./infile.txt: 505 MB
+Wrote to ./outfile.txt: 250 MB
+Elapsed time: 0:02:53.062531
+
+```
+
 # Hashcat Rules
 Given the phrase `take the red pill` the first hashcat rule will output the following
 ```
