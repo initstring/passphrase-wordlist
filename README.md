@@ -1,7 +1,7 @@
 # Overview
 People think they are getting smarter by using passphrases. Let's prove them wrong!
 
-This project includes a massive wordlist of phrases (17,737,982) and two hashcat rule files for GPU-based cracking.
+This project includes a massive wordlist of phrases (~18 million) and two hashcat rule files for GPU-based cracking.
 
 Passphrase wordlist and raw data sources are available to download via the torrent files **[here](https://github.com/initstring/passphrase-wordlist/tree/master/torrents)**. You only need the 'passphrases' file and the hashcat rules, but some researchers may want to take a look at the raw sources.
 
