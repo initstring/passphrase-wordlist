@@ -5,7 +5,7 @@ This project includes a massive wordlist of phrases (17,737,982) and two hashcat
 
 Passphrase wordlist and raw data sources are available to download via the torrent files **[here](https://github.com/initstring/passphrase-wordlist/tree/master/torrents)**. You only need the 'passphrases' file and the hashcat rules, but some researchers may want to take a look at the raw sources.
 
-If you cannot download via the torrents, try [here](https://spideroak.com/browse/share/initstring/public/passphrase-wordlist/)
+If you cannot download via the torrents, try [here](https://spideroak.com/browse/share/initstring/passphrases/passphrase-wordlist/)
 
 Use both [rules](https://github.com/initstring/passphrase-wordlist/tree/master/hashcat-rules) for best results.
 
@@ -28,6 +28,7 @@ So far, I've scraped the following: <br>
 - [Wikipedia Article Titles](https://www.kaggle.com/residentmario/wikipedia-article-titles) dataset from Kaggle.
 - [1,800 English Phrases](https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html)
 - [2016 US Presidential Debates](https://www.kaggle.com/kinguistics/2016-us-presidential-primary-debates) dataset on Kaggle.
+- [Goodreads Book Reviews](https://www.kaggle.com/gnanesh/goodreads-book-reviews) from Kaggle. I scraped the titles of over 300,000 books.
 
 # Cleaning sources
 Check out the script [cleanup.py](https://github.com/initstring/passphrase-wordlist/blob/master/cleanup.py) to see how I've cleaned the raw sources. 
