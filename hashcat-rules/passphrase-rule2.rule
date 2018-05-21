@@ -27,18 +27,18 @@ $!
 $?
 
 # G3t 133t (just the common ones) across whole phrase
-sa@sa@
-se3se3
-sl1sl1
+sa@sA@
+se3sE3
+sl1sL1
 so0sO0
 ss5sS5
-sa@sa@se3se3se3se3so0sO0ss5sS5
-sa@sa@$!
-se3se3$!
-sl1sl1$!
+sa@sA@se3sE3so0sO0ss5sS5
+sa@sA@$!
+se3sE3$!
+sl1sL1$!
 so0sO0$!
 ss5sS5$!
-sa@sa@se3se3se3se3so0sO0ss5sS5$!
+sa@sA@se3sE3so0sO0ss5sS5$!
 
 # Hashcat doesn't support 'nth place'positional replace in rule sets yet.
 # So we can say 'replace only the first A with @'
