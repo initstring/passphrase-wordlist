@@ -59,6 +59,7 @@ def handle_punctuation(line):
     cleanLines = []
     allowedChars = re.compile("[^a-zA-Z0-9 '&]")    # Allow only letters, numbers, spaces, and some punctuation
     line = allowedChars.sub('',line)                # Gets rid of any remaining special characters in the name
+    line = re.sub("\s\s+" , " ", line)              # Shrinks down multiple spaces
     if "'" in line:                                 # If line has an apostrophe make a duplicate without
         cleanLines.append(re.sub("'", "", line))
     cleanLines.append(line)
