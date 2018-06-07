@@ -7,7 +7,7 @@ Passphrase wordlist and raw data sources are available to download via the torre
 
 If you cannot download via the torrents, try [here](https://spideroak.com/browse/share/initstring/passphrases/passphrase-wordlist/)
 
-Use both [rules](https://github.com/initstring/passphrase-wordlist/tree/master/hashcat-rules) for best results.
+Use both [rules](https://gitlab.com/initstring/passphrase-wordlist/tree/master/hashcat-rules) for best results.
 
 Here is an example for NTLMv2 hashes: If you use the `-O` option, watch out for what the maximum password length is set to - it may be too short.
 
@@ -19,7 +19,7 @@ hashcat64.bin -a 0 -m 5600 hashes.txt passphrases.txt -r passphrase-rule1.rule -
 So far, I've scraped the following: <br>
 - [15,000 Useful Phrases](https://www.gutenberg.org/ebooks/18362)
 - Urban Dictionary dataset pulled Dec 09 2017 using [this great script](https://github.com/mattbierner/urban-dictionary-word-list).
-- Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://github.com/initstring/lyricpass).
+- Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://gitlab.com/initstring/lyricpass).
 - Movie titles and lines from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html).
 - "Titles" from the [IMDB dataset](https://www.kaggle.com/orgesleka/imdbmovies) on Kaggle.
 - [Global POI dataset](http://download.geonames.org/export/dump/) using the 'allCountries' file.
@@ -31,7 +31,7 @@ So far, I've scraped the following: <br>
 - [Goodreads Book Reviews](https://www.kaggle.com/gnanesh/goodreads-book-reviews) from Kaggle. I scraped the titles of over 300,000 books.
 
 # Cleaning sources
-Check out the script [cleanup.py](https://github.com/initstring/passphrase-wordlist/blob/master/cleanup.py) to see how I've cleaned the raw sources. 
+Check out the script [cleanup.py](https://gitlab.com/initstring/passphrase-wordlist/blob/master/cleanup.py) to see how I've cleaned the raw sources. 
 
 It works like this:
 
