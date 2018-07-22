@@ -1,7 +1,7 @@
 # Overview
 People think they are getting smarter by using passphrases. Let's prove them wrong!
 
-This project includes a massive wordlist of phrases (~18 million) and two hashcat rule files for GPU-based cracking.
+This project includes a massive wordlist of phrases (~18 million) and two hashcat rule files for GPU-based cracking. The rules will create over 1,000 permutations of each phase.
 
 Passphrase wordlist and raw data sources are available to download via the torrent files **[here](https://gitlab.com/initstring/passphrase-wordlist/tree/master/torrents)**. You only need the 'passphrases' file and the hashcat rules, but some researchers may want to take a look at the raw sources.
 
@@ -29,6 +29,8 @@ So far, I've scraped the following: <br>
 - [1,800 English Phrases](https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html)
 - [2016 US Presidential Debates](https://www.kaggle.com/kinguistics/2016-us-presidential-primary-debates) dataset on Kaggle.
 - [Goodreads Book Reviews](https://www.kaggle.com/gnanesh/goodreads-book-reviews) from Kaggle. I scraped the titles of over 300,000 books.
+- US & UK top album names, artists, and track names from the 1950s - 2018 using [mwkling's tool here](https://github.com/mwkling/umdmusic-downloader).
+    - *Note: I modified that python script to download multiple charts, as opposed to just US Billboard*
 
 # Cleaning sources
 Check out the script [cleanup.py](https://gitlab.com/initstring/passphrase-wordlist/blob/master/cleanup.py) to see how I've cleaned the raw sources. 
