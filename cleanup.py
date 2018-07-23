@@ -31,29 +31,11 @@ def escape_encoding(line):
     line = re.sub("[ñ]", 'n', line)
     return line
 
-def choose_candidates(line):
-    match = re.compile('[a-z]..')
-    if ' ' not in line or not match.search(line):  # Choose lines only that contain a space and sequential letters 
-        return False
-    elif len(line) < 8 or len(line) > 50:           # Throw out really long lines / parapgrahs not split earlier
-        return False
-    else:
-        return True
-
 def split_lines(line):
-    newLines = []
-    if '.' in line:
-        for l in line.split('.'):                   # Split lines with a period into multiple phrases
-            newLines.append(l)
-    else:
-        newLines.append(line)
-    for l in newLines:
-        if "," in l:
-            newLines.remove(l)
-            for i in l.split(','):
-                newLines.append(i)
+    newLines = re.split(';|,|\. ',line)             # Split at periods and semi-colons. Only split at periods followed
+                                                    # by a space. This helps preserve SOME abbreviations but needs 
+                                                    # further refining to catch those at the beginning of a phrase.
     return newLines
-
 
 def handle_punctuation(line):
     cleanLines = []
@@ -62,8 +44,21 @@ def handle_punctuation(line):
     line = re.sub("\s\s+" , " ", line)              # Shrinks down multiple spaces
     if "'" in line:                                 # If line has an apostrophe make a duplicate without
         cleanLines.append(re.sub("'", "", line))
+    if "and" in line:                               # Making duplicating phrases including and / &
+        cleanLines.append(re.sub("and", "&", line))
+    if "&" in line:
+        cleanLines.append(re.sub("&", "and", line))
     cleanLines.append(line)
     return cleanLines                               # Returns a new list based on the single input line
+
+def choose_candidates(line):
+    match = re.compile('[a-z0-9\'&] [a-z0-9\'&]')
+    if not match.search(line):                      # Throw out single-word candidates
+        return False
+    elif len(line) < 8 or len(line) > 50:           # Thow out too short / too long lines 
+        return False
+    else:
+        return True
 
 def write_file(buffer, outfile):
     oF = open(outFile, 'w')
@@ -76,14 +71,11 @@ def build_buffer(inFile):
     with open(inFile, encoding='utf-8', errors='ignore') as iF:
         for line in iF:
             candidates = []
-            line = escape_encoding(line)            # Remove HTML and URL encoding first
-            if ',' in line or '.' in line:          # Split up lines with , or .
-                for l in split_lines(line):
-                    candidates.append(l.strip())            # We might have multiple items now due to splitting
-            else:
-                candidates.append(line.strip())             # Or we may have just a single item
+            line = escape_encoding(line)                # Remove HTML and URL encoding first
+            for l in split_lines(line):                 # Split lines with common delimiters like . , or ; 
+                candidates.append(l.strip())
             for string in candidates:
-                buffer.append(string)              # These are the items we want to work with, they go in memory
+                buffer.append(string)                   # These are the items we want to work with, they go in memory
     return buffer
 
 

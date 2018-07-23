@@ -21,9 +21,10 @@ $ $2$0$2$0$!
 
 # Add common numbers to the end
 $1
-$9$9
 $1$!
-$9$9$!
+$1$2$3
+$1$2$3$!
+
 
 # Add common punctuation to end
 $!
