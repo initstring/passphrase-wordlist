@@ -32,7 +32,7 @@ def escape_encoding(line):
     return line
 
 def split_lines(line):
-    newLines = re.split(';|,|\. ',line)             # Split at periods and semi-colons. Only split at periods followed
+    newLines = re.split(';|,|\. ',line)             # Split at commas and semi-colons. Only split at periods followed
                                                     # by a space. This helps preserve SOME abbreviations but needs 
                                                     # further refining to catch those at the beginning of a phrase.
     return newLines
