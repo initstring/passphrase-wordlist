@@ -44,10 +44,12 @@ def handle_punctuation(line):
     line = re.sub("\s\s+" , " ", line)              # Shrinks down multiple spaces
     if "'" in line:                                 # If line has an apostrophe make a duplicate without
         cleanLines.append(re.sub("'", "", line))
-    if "and" in line:                               # Making duplicating phrases including and / &
-        cleanLines.append(re.sub("and", "&", line))
+    if " and " in line:                               # Making duplicating phrases including and / &
+        cleanLines.append(re.sub(" and ", " & ", line))
     if "&" in line:
-        cleanLines.append(re.sub("&", "and", line))
+        l2 = re.sub("&", " and ", line)
+        l2 = re.sub('\s+', ' ', l2).strip()
+        cleanLines.append(l2)
     cleanLines.append(line)
     return cleanLines                               # Returns a new list based on the single input line
 
