@@ -3,18 +3,17 @@ People think they are getting smarter by using passphrases. Let's prove them wro
 
 This project includes a massive wordlist of phrases (~18 million) and two hashcat rule files for GPU-based cracking. The rules will create over 1,000 permutations of each phase.
 
-To use this project, your need:
+To use this project, you need:
 - The wordlist hosted [here](https://keybase.pub/initstring/passphrase-wordlist/passphrases.txt?dl=1).
 - Both hashcat rules [here](hashcat-rules/).
 
-Optionally, some researchers might be interested in:
-- My best-effort to maintain raw sources [here](https://keybase.pub/initstring/passphrase-wordlist/raw-sources).
-- The script I use to clean the raw sources into the wordlist [here](utilities/cleanup.py).
+# Usage
+Generally, you will use with hashcat's `-a 0` mode which takes a wordlist and allows rule files. It is important to use the rule files in the correct order, as rule #1 mostly handles capital letters and spaces, and rule #2 deals with permutations.
 
 Here is an example for NTLMv2 hashes: If you use the `-O` option, watch out for what the maximum password length is set to - it may be too short.
 
 ```
-hashcat64.bin -a 0 -m 5600 hashes.txt passphrases.txt -r passphrase-rule1.rule -r passphrase-rule2.rule -w 3
+hashcat -a 0 -m 5600 hashes.txt passphrases.txt -r passphrase-rule1.rule -r passphrase-rule2.rule -O -w 3
 ```
 
 # Sources Used
@@ -34,26 +33,14 @@ So far, I've scraped the following: <br>
 - US & UK top album names, artists, and track names from the 1950s - 2018 using [mwkling's tool here](https://github.com/mwkling/umdmusic-downloader).
     - *Note: I modified that python script to download multiple charts, as opposed to just US Billboard*
 
-# Cleaning sources
-Check out the script [cleanup.py](/cleanup.py) to see how I've cleaned the raw sources. 
-
-It works like this:
-
-```
-$ python3.6 cleanup.py infile.txt outfile.txt
-Reading from ./infile.txt: 505 MB
-Wrote to ./outfile.txt: 250 MB
-Elapsed time: 0:02:53.062531
-
-```
-
 # Hashcat Rules
-Given the phrase `take the red pill` the first hashcat rule will output the following
+The rule files are designed to both "shape" the password and to mutate it. Shaping is based on the idea that human beings follow fairly predictable patterns when choosing a password, such as capitalising the first letter of each word and following the phrase with a number or special character. Mutations are also fairly predictable, such as replacing letters with visually-similar special characters.
+
+Given the phrase `take the red pill` the first hashcat rule will output the following:
 ```
 take the red pill
 take-the-red-pill
 take.the.red.pill
-take,the,red,pill
 take_the_red_pill
 taketheredpill
 Take the red pill
@@ -66,7 +53,6 @@ Take The Red Pill
 TakeTheRedPill
 Take-The-Red-Pill
 Take.The.Red.Pill
-Take,The,Red,Pill
 Take_The_Red_Pill
 ```
 
@@ -76,7 +62,23 @@ Adding in the second hashcat rule makes things get a bit more interesting. That 
 T@k3Th3R3dPill!
 T@ke-The-Red-Pill
 taketheredpill2020!
-T0KE THE RED PILL (unintentional humor)
+T0KE THE RED PILL
+```
+
+# Additional Info
+Optionally, some researchers might be interested in:
+- My best-effort to maintain raw sources [here](https://keybase.pub/initstring/passphrase-wordlist/raw-sources).
+- The script I use to clean the raw sources into the wordlist [here](utilities/cleanup.py).
+
+
+The cleanup script works like this:
+
+```
+$ python3.6 cleanup.py infile.txt outfile.txt
+Reading from ./infile.txt: 505 MB
+Wrote to ./outfile.txt: 250 MB
+Elapsed time: 0:02:53.062531
+
 ```
 
 Enjoy!
