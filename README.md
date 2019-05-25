@@ -4,7 +4,7 @@ People think they are getting smarter by using passphrases. Let's prove them wro
 This project includes a massive wordlist of phrases (~18 million) and two hashcat rule files for GPU-based cracking. The rules will create over 1,000 permutations of each phase.
 
 To use this project, you need:
-- The wordlist hosted [here](https://keybase.pub/initstring/passphrase-wordlist/passphrases.txt?dl=1).
+- The wordlist hosted [here](https://initstring.keybase.pub/passphrase-wordlist/passphrases.txt?dl=1).
 - Both hashcat rules [here](hashcat-rules/).
 
 # Usage
