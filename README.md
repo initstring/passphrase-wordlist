@@ -3,11 +3,13 @@ People think they are getting smarter by using passphrases. Let's prove them wro
 
 This project includes a massive wordlist of phrases (~18 million) and two hashcat rule files for GPU-based cracking. The rules will create over 1,000 permutations of each phase.
 
-Passphrase wordlist and raw data sources are available to download via the torrent files **[here](/torrents)**. You only need the 'passphrases' file and the hashcat rules, but some researchers may want to take a look at the raw sources.
+To use this project, your need:
+- The wordlist hosted [here](https://keybase.pub/initstring/passphrase-wordlist/passphrases.txt).
+- Both hashcat rules [here](hashcat-rules/).
 
-If you cannot download via the torrents, try [here](https://spideroak.com/browse/share/initstring/passphrases/passphrase-wordlist/)
-
-Use both [rules](/hashcat-rules) for best results.
+Optionally, some researchers might be interested in:
+- My best-effort to maintain raw sources [here](https://keybase.pub/initstring/passphrase-wordlist/raw-sources).
+- The script I use to clean the raw sources into the wordlist [here](utilities/cleanup.py).
 
 Here is an example for NTLMv2 hashes: If you use the `-O` option, watch out for what the maximum password length is set to - it may be too short.
 
