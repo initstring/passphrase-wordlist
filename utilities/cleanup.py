@@ -141,7 +141,7 @@ def write_file(buffer, outfile):
     file_handler.close()
 
     outfile_size = str((int(os.path.getsize(outfile)/1000000)))
-    print("Wrote to {}: {}".format(outfile, outfile_size))
+    print("Wrote to {}: {} MB".format(outfile, outfile_size))
 
 
 def main():
