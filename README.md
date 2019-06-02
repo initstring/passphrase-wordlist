@@ -7,6 +7,8 @@ To use this project, you need:
 - The wordlist hosted [here](https://initstring.keybase.pub/passphrase-wordlist/passphrases.txt?dl=1).
 - Both hashcat rules [here](hashcat-rules/).
 
+**WORDLIST LAST UPDATED**: June-02-2019
+
 # Usage
 Generally, you will use with hashcat's `-a 0` mode which takes a wordlist and allows rule files. It is important to use the rule files in the correct order, as rule #1 mostly handles capital letters and spaces, and rule #2 deals with permutations.
 
@@ -18,15 +20,16 @@ hashcat -a 0 -m 5600 hashes.txt passphrases.txt -r passphrase-rule1.rule -r pass
 
 # Sources Used
 So far, I've scraped the following: <br>
+- IMDB dataset using the "primaryTitle" column from `title.basics.tsv.gz` file available [here](https://datasets.imdbws.com/) grabbed May 25.
+- From the Wikipedia `pages-articles-multistream-index` dump generated May-20-2019 [here](https://dumps.wikimedia.org/enwiki), article titles and category names.
+- From Wiktionary's similar index dump [here](https://dumps.wikimedia.org/enwiktionary), the entries generated May-20-2019.
+- Urban Dictionary dataset pulled May 27 2019 using [this great script](https://github.com/mattbierner/urban-dictionary-word-list).
 - [15,000 Useful Phrases](https://www.gutenberg.org/ebooks/18362)
-- Urban Dictionary dataset pulled Dec 09 2017 using [this great script](https://github.com/mattbierner/urban-dictionary-word-list).
 - Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://github.com/initstring/lyricpass).
 - Movie titles and lines from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html).
-- "Titles" from the [IMDB dataset](https://www.kaggle.com/orgesleka/imdbmovies) on Kaggle.
 - [Global POI dataset](http://download.geonames.org/export/dump/) using the 'allCountries' file.
 - [Quotables](https://www.kaggle.com/alvations/quotables) dataset on Kaggle.
 - [MemeTracker](https://www.kaggle.com/snap/snap-memetracker) dataset from Kaggle.
-- [Wikipedia Article Titles](https://www.kaggle.com/residentmario/wikipedia-article-titles) dataset from Kaggle.
 - [1,800 English Phrases](https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html)
 - [2016 US Presidential Debates](https://www.kaggle.com/kinguistics/2016-us-presidential-primary-debates) dataset on Kaggle.
 - [Goodreads Book Reviews](https://www.kaggle.com/gnanesh/goodreads-book-reviews) from Kaggle. I scraped the titles of over 300,000 books.
