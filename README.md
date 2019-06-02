@@ -1,7 +1,7 @@
 # Overview
 People think they are getting smarter by using passphrases. Let's prove them wrong!
 
-This project includes a massive wordlist of phrases (~18 million) and two hashcat rule files for GPU-based cracking. The rules will create over 1,000 permutations of each phase.
+This project includes a massive wordlist of phrases (over 20 million) and two hashcat rule files for GPU-based cracking. The rules will create over 1,000 permutations of each phase.
 
 To use this project, you need:
 - The wordlist hosted [here](https://initstring.keybase.pub/passphrase-wordlist/passphrases.txt?dl=1).
@@ -29,7 +29,6 @@ So far, I've scraped the following: <br>
 - Movie titles and lines from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html).
 - [Global POI dataset](http://download.geonames.org/export/dump/) using the 'allCountries' file.
 - [Quotables](https://www.kaggle.com/alvations/quotables) dataset on Kaggle.
-- [MemeTracker](https://www.kaggle.com/snap/snap-memetracker) dataset from Kaggle.
 - [1,800 English Phrases](https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html)
 - [2016 US Presidential Debates](https://www.kaggle.com/kinguistics/2016-us-presidential-primary-debates) dataset on Kaggle.
 - [Goodreads Book Reviews](https://www.kaggle.com/gnanesh/goodreads-book-reviews) from Kaggle. I scraped the titles of over 300,000 books.
