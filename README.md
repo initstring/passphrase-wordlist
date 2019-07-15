@@ -7,7 +7,7 @@ To use this project, you need:
 - The wordlist hosted [here](https://initstring.keybase.pub/passphrase-wordlist/passphrases.txt?dl=1).
 - Both hashcat rules [here](hashcat-rules/).
 
-**WORDLIST LAST UPDATED**: June-02-2019
+**WORDLIST LAST UPDATED**: July-15-2019
 
 # Usage
 Generally, you will use with hashcat's `-a 0` mode which takes a wordlist and allows rule files. It is important to use the rule files in the correct order, as rule #1 mostly handles capital letters and spaces, and rule #2 deals with permutations.
@@ -26,6 +26,7 @@ So far, I've scraped the following: <br>
 - Urban Dictionary dataset pulled May 27 2019 using [this great script](https://github.com/mattbierner/urban-dictionary-word-list).
 - [15,000 Useful Phrases](https://www.gutenberg.org/ebooks/18362)
 - Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://github.com/initstring/lyricpass).
+- Meme titles from KnownYourMeme scraped using my tool [here](utilities/kym_scrape.py) on July 15 2019.
 - Movie titles and lines from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html).
 - [Global POI dataset](http://download.geonames.org/export/dump/) using the 'allCountries' file.
 - [Quotables](https://www.kaggle.com/alvations/quotables) dataset on Kaggle.
