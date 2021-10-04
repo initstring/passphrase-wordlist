@@ -6,8 +6,8 @@ This project includes a massive wordlist of phrases (over 20 million) and two ha
 
 To use this project, you need:
 
-- The wordlist hosted [here](https://initstring.keybase.pub/passphrase-wordlist/passphrases.txt?dl=1).
-- Both hashcat rules [here](/hashcat-rules/ "hashcat-rules/").
+- The wordlist hosted [here](https://f002.backblazeb2.com/file/passphrase-wordlist/passphrases.txt).
+- Both hashcat rules [here](/hashcat-rules/).
 
 **WORDLIST LAST UPDATED**: 2021-10-04
 
@@ -30,7 +30,7 @@ Some sources are pulled from a static dataset, like a Kaggle upload. Others I ge
 | wiktionary-2021-09-29.txt | dynamic | Article titles scraped from Wiktionary's index dump [here.](https://dumps.wikimedia.org/enwiktionary) |
 | wikipedia-2021-09-29.txt | dynamic | Article titles scraped from the Wikipedia `pages-articles-multistream-index` dump generated 29-Sept-2021 [here.](https://dumps.wikimedia.org/enwiki) |
 | urban-dictionary-2021-09-29.txt | dynamic | Urban Dictionary dataset pulled using [this script](https://github.com/mattbierner/urban-dictionary-word-list). |
-| know-your-meme-2021-09-29.txt | dynamic | Meme titles from KnownYourMeme scraped using my tool [here.](/tmp/.mount_Joplinl46ij3/resources/app.asar/utilities/kym_scrape.py "utilities/kym_scrape.py") |
+| know-your-meme-2021-09-29.txt | dynamic | Meme titles from KnownYourMeme scraped using my tool [here.](/utilities/kym_scrape.py) |
 | imdb-titles-2021-09-29.txt | dynamic | IMDB dataset using the "primaryTitle" column from `title.basics.tsv.gz` file available [here](https://datasets.imdbws.com/) |
 | global-poi-2021-09-29.txt | dynamic | [Global POI dataset](http://download.geonames.org/export/dump/) using the 'allCountries' file from 29-Sept-2021. |
 | billboard-titles-2021-10-04.txt | dynamic | Album and track names using [Ultimate Music Database](http://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
@@ -81,8 +81,8 @@ T0KE THE RED PILL
 
 Optionally, some researchers might be interested in:
 
-- My best-effort to maintain raw sources [here](https://keybase.pub/initstring/passphrase-wordlist/raw-sources).
-- The script I use to clean the raw sources into the wordlist [here](/tmp/.mount_Joplinl46ij3/resources/app.asar/utilities/cleanup.py "utilities/cleanup.py").
+- The raw source files. If so, please open an issue and I will find a good way to make them public.
+- The script I use to clean the raw sources into the wordlist [here](/utilities/cleanup.py).
 
 The cleanup script works like this:
 
