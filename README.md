@@ -35,7 +35,7 @@ Some sources are pulled from a static dataset, like a Kaggle upload. Others I ge
 | global-poi-2021-09-29.txt | dynamic | [Global POI dataset](http://download.geonames.org/export/dump/) using the 'allCountries' file from 29-Sept-2021. |
 | billboard-titles-2021-10-04.txt | dynamic | Album and track names using [Ultimate Music Database](http://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
 | billboard-artists-2021-10-04.txt | dynamic | Artist names using [Ultimate Music Database](http://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
-| (planned) | dynamic | NY Times bestsellers historical authors and book titles. |
+| book.txt | static | Kaggle dataset with titles from over 300,000 books. |
 | rstone-top-100.txt | static<br>(could be dynamic in future) | Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://github.com/initstring/lyricpass). |
 | cornell-movie-titles-raw.txt | static | Movie titles from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html). |
 | cornell-movie-lines.txt | static | Movie lines from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html). |
