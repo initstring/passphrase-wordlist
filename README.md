@@ -32,13 +32,13 @@ Some sources are pulled from a static dataset, like a Kaggle upload. Others I ge
 | urban-dictionary-2021-09-29.txt | dynamic | Urban Dictionary dataset pulled using [this script](https://github.com/mattbierner/urban-dictionary-word-list). |
 | know-your-meme-2021-09-29.txt | dynamic | Meme titles from KnownYourMeme scraped using my tool [here.](/utilities/kym_scrape.py) |
 | imdb-titles-2021-09-29.txt | dynamic | IMDB dataset using the "primaryTitle" column from `title.basics.tsv.gz` file available [here](https://datasets.imdbws.com/) |
-| global-poi-2021-09-29.txt | dynamic | [Global POI dataset](http://download.geonames.org/export/dump/) using the 'allCountries' file from 29-Sept-2021. |
-| billboard-titles-2021-10-04.txt | dynamic | Album and track names using [Ultimate Music Database](http://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
-| billboard-artists-2021-10-04.txt | dynamic | Artist names using [Ultimate Music Database](http://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
+| global-poi-2021-09-29.txt | dynamic | [Global POI dataset](https://download.geonames.org/export/dump/) using the 'allCountries' file from 29-Sept-2021. |
+| billboard-titles-2021-10-04.txt | dynamic | Album and track names using [Ultimate Music Database](https://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
+| billboard-artists-2021-10-04.txt | dynamic | Artist names using [Ultimate Music Database](https://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
 | book.txt | static | Kaggle dataset with titles from over 300,000 books. |
 | rstone-top-100.txt | static<br>(could be dynamic in future) | Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://github.com/initstring/lyricpass). |
-| cornell-movie-titles-raw.txt | static | Movie titles from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html). |
-| cornell-movie-lines.txt | static | Movie lines from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html). |
+| cornell-movie-titles-raw.txt | static | Movie titles from this [Cornell project](https://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html). |
+| cornell-movie-lines.txt | static | Movie lines from this [Cornell project](https://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html). |
 | author-quotes-raw.txt | static | [Quotables](https://www.kaggle.com/alvations/quotables) dataset on Kaggle. |
 | 1800-phrases-raw.txt | static | [1,800 English Phrases.](https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html) |
 | 15k-phrases-raw.txt | static | [15,000 Useful Phrases.](https://www.gutenberg.org/ebooks/18362) |
