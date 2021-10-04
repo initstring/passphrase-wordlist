@@ -81,7 +81,7 @@ T0KE THE RED PILL
 
 Optionally, some researchers might be interested in:
 
-- The raw source files. If so, please open an issue and I will find a good way to make them public.
+- The raw source files mentioned in the table above. You can download them by appending the file name to `https://f002.backblazeb2.com/file/passphrase-wordlist/`.
 - The script I use to clean the raw sources into the wordlist [here](/utilities/cleanup.py).
 
 The cleanup script works like this:
