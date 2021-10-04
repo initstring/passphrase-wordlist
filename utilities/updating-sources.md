@@ -58,7 +58,7 @@ rm allCountries.zip
 rm allCountries.txt
 ```
 
-# Billboard charts
+## Billboard charts
 
 ```
 git clone https://github.com/initstring/umdmusic-downloader
@@ -67,4 +67,13 @@ pip install -r ./requirements.txt
 python2 ./downloader.py
 cat ./us_billboard.psv | cut -d "|" -f 5 > ./billboard-titles-$(date +%Y-%m-%d).txt
 cat ./us_billboard.psv | cut -d "|" -f 6 | sed "s/ featuring /\n/g" > ./billboard-artists-$(date +%Y-%m-%d).txt
+```
+
+## Combining
+
+With all raw files in the same folder:
+
+```
+cat ./*.txt | sort -u > raw.txt
+python3 ./cleanup.py raw.txt passphrases.txt
 ```
