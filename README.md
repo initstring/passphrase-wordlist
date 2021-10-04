@@ -1,15 +1,18 @@
 # Overview
+
 People think they are getting smarter by using passphrases. Let's prove them wrong!
 
 This project includes a massive wordlist of phrases (over 20 million) and two hashcat rule files for GPU-based cracking. The rules will create over 1,000 permutations of each phase.
 
 To use this project, you need:
-- The wordlist hosted [here](https://initstring.keybase.pub/passphrase-wordlist/passphrases.txt?dl=1).
-- Both hashcat rules [here](hashcat-rules/).
 
-**WORDLIST LAST UPDATED**: July-15-2019
+- The wordlist hosted [here](https://f002.backblazeb2.com/file/passphrase-wordlist/passphrases.txt) (right-click, save-as).
+- Both hashcat rules [here](/hashcat-rules/).
+
+**WORDLIST LAST UPDATED**: 2021-10-04
 
 # Usage
+
 Generally, you will use with hashcat's `-a 0` mode which takes a wordlist and allows rule files. It is important to use the rule files in the correct order, as rule #1 mostly handles capital letters and spaces, and rule #2 deals with permutations.
 
 Here is an example for NTLMv2 hashes: If you use the `-O` option, watch out for what the maximum password length is set to - it may be too short.
@@ -19,27 +22,33 @@ hashcat -a 0 -m 5600 hashes.txt passphrases.txt -r passphrase-rule1.rule -r pass
 ```
 
 # Sources Used
-So far, I've scraped the following: <br>
-- IMDB dataset using the "primaryTitle" column from `title.basics.tsv.gz` file available [here](https://datasets.imdbws.com/) grabbed May 25.
-- From the Wikipedia `pages-articles-multistream-index` dump generated May-20-2019 [here](https://dumps.wikimedia.org/enwiki), article titles and category names.
-- From Wiktionary's similar index dump [here](https://dumps.wikimedia.org/enwiktionary), the entries generated May-20-2019.
-- Urban Dictionary dataset pulled May 27 2019 using [this great script](https://github.com/mattbierner/urban-dictionary-word-list).
-- [15,000 Useful Phrases](https://www.gutenberg.org/ebooks/18362)
-- Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://github.com/initstring/lyricpass).
-- Meme titles from KnownYourMeme scraped using my tool [here](utilities/kym_scrape.py) on July 15 2019.
-- Movie titles and lines from this [Cornell project](http://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html).
-- [Global POI dataset](http://download.geonames.org/export/dump/) using the 'allCountries' file.
-- [Quotables](https://www.kaggle.com/alvations/quotables) dataset on Kaggle.
-- [1,800 English Phrases](https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html)
-- [2016 US Presidential Debates](https://www.kaggle.com/kinguistics/2016-us-presidential-primary-debates) dataset on Kaggle.
-- [Goodreads Book Reviews](https://www.kaggle.com/gnanesh/goodreads-book-reviews) from Kaggle. I scraped the titles of over 300,000 books.
-- US & UK top album names, artists, and track names from the 1950s - 2018 using [mwkling's tool here](https://github.com/mwkling/umdmusic-downloader).
-    - *Note: I modified that python script to download multiple charts, as opposed to just US Billboard*
+
+Some sources are pulled from a static dataset, like a Kaggle upload. Others I generate myself using various scripts and APIs. I might one day automate that via CI, but for now you can see how I update the dynamic sources [here](/utilities/updating-sources.md).
+
+| <ins>**source file name**</ins> | <ins>**source type**</ins> | <ins>**description**</ins> |
+| --- | --- | --- |
+| wiktionary-2021-09-29.txt | dynamic | Article titles scraped from Wiktionary's index dump [here.](https://dumps.wikimedia.org/enwiktionary) |
+| wikipedia-2021-09-29.txt | dynamic | Article titles scraped from the Wikipedia `pages-articles-multistream-index` dump generated 29-Sept-2021 [here.](https://dumps.wikimedia.org/enwiki) |
+| urban-dictionary-2021-09-29.txt | dynamic | Urban Dictionary dataset pulled using [this script](https://github.com/mattbierner/urban-dictionary-word-list). |
+| know-your-meme-2021-09-29.txt | dynamic | Meme titles from KnownYourMeme scraped using my tool [here.](/utilities/kym_scrape.py) |
+| imdb-titles-2021-09-29.txt | dynamic | IMDB dataset using the "primaryTitle" column from `title.basics.tsv.gz` file available [here](https://datasets.imdbws.com/) |
+| global-poi-2021-09-29.txt | dynamic | [Global POI dataset](https://download.geonames.org/export/dump/) using the 'allCountries' file from 29-Sept-2021. |
+| billboard-titles-2021-10-04.txt | dynamic | Album and track names using [Ultimate Music Database](https://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
+| billboard-artists-2021-10-04.txt | dynamic | Artist names using [Ultimate Music Database](https://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
+| book.txt | static | Kaggle dataset with titles from over 300,000 books. |
+| rstone-top-100.txt | static<br>(could be dynamic in future) | Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://github.com/initstring/lyricpass). |
+| cornell-movie-titles-raw.txt | static | Movie titles from this [Cornell project](https://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html). |
+| cornell-movie-lines.txt | static | Movie lines from this [Cornell project](https://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html). |
+| author-quotes-raw.txt | static | [Quotables](https://www.kaggle.com/alvations/quotables) dataset on Kaggle. |
+| 1800-phrases-raw.txt | static | [1,800 English Phrases.](https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html) |
+| 15k-phrases-raw.txt | static | [15,000 Useful Phrases.](https://www.gutenberg.org/ebooks/18362) |
 
 # Hashcat Rules
+
 The rule files are designed to both "shape" the password and to mutate it. Shaping is based on the idea that human beings follow fairly predictable patterns when choosing a password, such as capitalising the first letter of each word and following the phrase with a number or special character. Mutations are also fairly predictable, such as replacing letters with visually-similar special characters.
 
 Given the phrase `take the red pill` the first hashcat rule will output the following:
+
 ```
 take the red pill
 take-the-red-pill
@@ -69,10 +78,11 @@ T0KE THE RED PILL
 ```
 
 # Additional Info
-Optionally, some researchers might be interested in:
-- My best-effort to maintain raw sources [here](https://keybase.pub/initstring/passphrase-wordlist/raw-sources).
-- The script I use to clean the raw sources into the wordlist [here](utilities/cleanup.py).
 
+Optionally, some researchers might be interested in:
+
+- The raw source files mentioned in the table above. You can download them by appending the file name to `https://f002.backblazeb2.com/file/passphrase-wordlist/`.
+- The script I use to clean the raw sources into the wordlist [here](/utilities/cleanup.py).
 
 The cleanup script works like this:
 
