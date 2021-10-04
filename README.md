@@ -6,7 +6,7 @@ This project includes a massive wordlist of phrases (over 20 million) and two ha
 
 To use this project, you need:
 
-- The wordlist hosted <a href="https://f002.backblazeb2.com/file/passphrase-wordlist/passphrases.txt" download>here</a>.
+- The wordlist hosted [here](https://f002.backblazeb2.com/file/passphrase-wordlist/passphrases.txt) (right-click, save-as).
 - Both hashcat rules [here](/hashcat-rules/).
 
 **WORDLIST LAST UPDATED**: 2021-10-04
