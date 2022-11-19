@@ -17,7 +17,7 @@ rm title.basics.tsv
 
 ```
 wget https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles-multistream-index.txt.bz2
-bunzip2 ./enwiki-latest-pages-articles-multistream-index.txt.bz2
+gunzip2 ./enwiki-latest-pages-articles-multistream-index.txt.bz2
 cat ./enwiki-latest-pages-articles-multistream-index.txt | cut -d: -f 3 > ./wikipedia-$(date +%Y-%m-%d).txt
 rm enwiki-latest-pages-articles-multistream-index.txt
 
@@ -63,8 +63,8 @@ rm allCountries.txt
 ```
 git clone https://github.com/initstring/umdmusic-downloader
 cd umdmusic-downloader
-pip install -r ./requirements.txt
-python2 ./downloader.py
+pip3 install -r ./requirements.txt
+python3 ./downloader.py
 cat ./us_billboard.psv | cut -d "|" -f 5 > ./billboard-titles-$(date +%Y-%m-%d).txt
 cat ./us_billboard.psv | cut -d "|" -f 6 | sed "s/ featuring /\n/g" > ./billboard-artists-$(date +%Y-%m-%d).txt
 ```
