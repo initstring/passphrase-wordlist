@@ -68,6 +68,7 @@ pip3 install -r ./requirements.txt
 python3 ./downloader.py
 cat ./us_billboard.psv | cut -d "|" -f 5 > ./billboard-titles-$(date +%Y-%m-%d).txt
 cat ./us_billboard.psv | cut -d "|" -f 6 | sed "s/ featuring /\n/g" > ./billboard-artists-$(date +%Y-%m-%d).txt
+rm ./us_billboard.psv
 ```
 
 ## Combining
