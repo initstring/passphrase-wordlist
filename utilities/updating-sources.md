@@ -38,6 +38,7 @@ rm enwiktionary-latest-all-titles
 ```
 git clone https://github.com/initstring/urban-dictionary-word-list
 cd urban-dictionary-word-list
+touch urban-dictionary-$(date +%Y-%m-%d).txt
 python3 ./main.py --out urban-dictionary-$(date +%Y-%m-%d).txt
 ```
 
