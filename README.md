@@ -9,7 +9,7 @@ To use this project, you need:
 - The wordlist hosted [here](https://f002.backblazeb2.com/file/passphrase-wordlist/passphrases.txt) (right-click, save-as).
 - Both hashcat rules [here](/hashcat-rules/).
 
-**WORDLIST LAST UPDATED**: 2021-10-04
+**WORDLIST LAST UPDATED**: November 2022
 
 # Usage
 
@@ -27,14 +27,14 @@ Some sources are pulled from a static dataset, like a Kaggle upload. Others I ge
 
 | <ins>**source file name**</ins> | <ins>**source type**</ins> | <ins>**description**</ins> |
 | --- | --- | --- |
-| wiktionary-2021-09-29.txt | dynamic | Article titles scraped from Wiktionary's index dump [here.](https://dumps.wikimedia.org/enwiktionary) |
-| wikipedia-2021-09-29.txt | dynamic | Article titles scraped from the Wikipedia `pages-articles-multistream-index` dump generated 29-Sept-2021 [here.](https://dumps.wikimedia.org/enwiki) |
-| urban-dictionary-2021-09-29.txt | dynamic | Urban Dictionary dataset pulled using [this script](https://github.com/mattbierner/urban-dictionary-word-list). |
-| know-your-meme-2021-09-29.txt | dynamic | Meme titles from KnownYourMeme scraped using my tool [here.](/utilities/kym_scrape.py) |
-| imdb-titles-2021-09-29.txt | dynamic | IMDB dataset using the "primaryTitle" column from `title.basics.tsv.gz` file available [here](https://datasets.imdbws.com/) |
-| global-poi-2021-09-29.txt | dynamic | [Global POI dataset](https://download.geonames.org/export/dump/) using the 'allCountries' file from 29-Sept-2021. |
-| billboard-titles-2021-10-04.txt | dynamic | Album and track names using [Ultimate Music Database](https://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
-| billboard-artists-2021-10-04.txt | dynamic | Artist names using [Ultimate Music Database](https://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
+| wiktionary-2022-11-19.txt | dynamic | Article titles scraped from Wiktionary's index dump [here.](https://dumps.wikimedia.org/enwiktionary) |
+| wikipedia-2022-11-19.txt | dynamic | Article titles scraped from the Wikipedia `pages-articles-multistream-index` dump generated 29-Sept-2021 [here.](https://dumps.wikimedia.org/enwiki) |
+| urban-dictionary-2022-11-19.txt | dynamic | Urban Dictionary dataset pulled using [this script](https://github.com/mattbierner/urban-dictionary-word-list). |
+| know-your-meme-2022-11-19.txt | dynamic | Meme titles from KnownYourMeme scraped using my tool [here.](/utilities/kym_scrape.py) |
+| imdb-titles-2022-11-19.txt | dynamic | IMDB dataset using the "primaryTitle" column from `title.basics.tsv.gz` file available [here](https://datasets.imdbws.com/) |
+| global-poi-2022-11-19.txt | dynamic | [Global POI dataset](https://download.geonames.org/export/dump/) using the 'allCountries' file from 29-Sept-2021. |
+| billboard-titles-2022-11-19.txt | dynamic | Album and track names using [Ultimate Music Database](https://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
+| billboard-artists-2022-11-19.txt | dynamic | Artist names using [Ultimate Music Database](https://www.umdmusic.com/), scraped with [a fork of mwkling's tool](https://github.com/initstring/umdmusic-downloader), modified to grab Billboard Singles (1940-2021) and Billboard Albums (1970-2021) charts. |
 | book.txt | static | Kaggle dataset with titles from over 300,000 books. |
 | rstone-top-100.txt | static<br>(could be dynamic in future) | Song lyrics for Rolling Stone's "top 100" artists using my [lyric scraping tool](https://github.com/initstring/lyricpass). |
 | cornell-movie-titles-raw.txt | static | Movie titles from this [Cornell project](https://www.cs.cornell.edu/~cristian//Cornell_Movie-Dialogs_Corpus.html). |
