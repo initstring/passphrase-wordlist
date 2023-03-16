@@ -6,7 +6,7 @@ This project includes a massive wordlist of phrases (over 20 million) and two ha
 
 To use this project, you need:
 
-- The wordlist hosted [here](https://f002.backblazeb2.com/file/passphrase-wordlist/passphrases.txt) (right-click, save-as).
+- The wordlist hosted itself (`passphrases.txt`), which you can find in the [releases](https://github.com/initstring/passphrase-wordlist/releases).
 - Both hashcat rules [here](/hashcat-rules/).
 
 **WORDLIST LAST UPDATED**: November 2022
@@ -79,10 +79,7 @@ T0KE THE RED PILL
 
 # Additional Info
 
-Optionally, some researchers might be interested in:
-
-- The raw source files mentioned in the table above. You can download them by appending the file name to `https://f002.backblazeb2.com/file/passphrase-wordlist/`.
-- The script I use to clean the raw sources into the wordlist [here](/utilities/cleanup.py).
+Optionally, some researchers might be interested in the script I use to clean the raw sources into the wordlist [here](/utilities/cleanup.py).
 
 The cleanup script works like this:
 
