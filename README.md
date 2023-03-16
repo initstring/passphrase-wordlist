@@ -6,7 +6,7 @@ This project includes a massive wordlist of phrases (over 20 million) and two ha
 
 To use this project, you need:
 
-- The wordlist hosted itself (`passphrases.txt`), which you can find in the [releases](https://github.com/initstring/passphrase-wordlist/releases).
+- The wordlist `passphrases.txt`, which you can find under [releases](https://github.com/initstring/passphrase-wordlist/releases).
 - Both hashcat rules [here](/hashcat-rules/).
 
 **WORDLIST LAST UPDATED**: November 2022
