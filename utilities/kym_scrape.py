@@ -70,7 +70,7 @@ def scrape_pages():
 
     while True:
         # Build the URL based on auto-scroll behaviour
-        url = "{}/{}".format(KYM_URL, page)
+        url = f"{KYM_URL}/{page}"
         response = requests.get(url, headers=HEADERS)
 
         # Check for IP ban
@@ -80,8 +80,7 @@ def scrape_pages():
 
         # Return if no more results
         if NO_MORE in response.text:
-            print("\n[*] Reached end of line at page {}. Exiting"
-                  .format(page))
+            print(f"\n[*] Reached end of line at page {page}. Exiting")
             return phrases
 
         # Clear stdout for ongoing notifications
@@ -97,8 +96,9 @@ def scrape_pages():
         write_log(new_phrases)
 
         # Update the patiently waiting user
-        sys.stdout.write("[*] Page: {}, Phrases: {}, Unique Phrases: {}"
-                         .format(page, len(new_phrases), len(phrases)))
+        sys.stdout.write(
+            f"[*] Page: {page}, Phrases: {len(new_phrases)}, Unique Phrases: {len(phrases)}"
+        )
 
         # Increment the page for the next loop
         page += 1
@@ -114,8 +114,7 @@ def main():
     print("[*] Scraping all pages of KYM...")
     phrases = scrape_pages()
 
-    print("[+] Found {} phrases, writing to {}..."
-          .format(len(phrases), OUTFILE))
+    print(f"[+] Found {len(phrases)} phrases, writing to {OUTFILE}...")
     write_final(phrases)
 
 

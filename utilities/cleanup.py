@@ -45,23 +45,17 @@ def build_buffer(infile):
     """
     buffer = []
 
-    infile_size = str((int(os.path.getsize(infile)/1000000))) + " MB"
-    print("Reading from {}: {}".format(infile, infile_size))
+    infile_size = f"{int(os.path.getsize(infile) / 1000000)} MB"
+    print(f"Reading from {infile}: {infile_size}")
 
     with open(infile, encoding='utf-8', errors='ignore') as file_handler:
         for line in file_handler:
-            candidates = []
             # Remove HTML and URL encoding first
             line = escape_encoding(line)
 
-            # Split lines with common delimiters like . , or ;
-            for split_line in re.split(r';|,|\.', line):
-                candidates.append(split_line.strip())
-
+            candidates = [split_line.strip() for split_line in re.split(r';|,|\.', line)]
             # There is a new short list, append each to the buffer
-            for string in candidates:
-                buffer.append(string)
-
+            buffer.extend(iter(candidates))
     return buffer
 
 def handle_punctuation(line):
@@ -135,13 +129,11 @@ def write_file(buffer, outfile):
     """
     Writes choses candidates to an output file
     """
-    file_handler = open(outfile, 'w')
-    for line in buffer:
-        file_handler.write(line.strip()+ '\n')
-    file_handler.close()
-
+    with open(outfile, 'w') as file_handler:
+        for line in buffer:
+            file_handler.write(line.strip()+ '\n')
     outfile_size = str((int(os.path.getsize(outfile)/1000000)))
-    print("Wrote to {}: {} MB".format(outfile, outfile_size))
+    print(f"Wrote to {outfile}: {outfile_size} MB")
 
 
 def main():
@@ -161,7 +153,7 @@ def main():
     # Writes final set out to file
     write_file(final, args.outfile)
     elapsed = (time.time() - start)
-    print("Elapsed time: " + str(timedelta(seconds=elapsed)))
+    print(f"Elapsed time: {str(timedelta(seconds=elapsed))}")
 
 
 if __name__ == "__main__":
