@@ -22,7 +22,7 @@ import requests
 KYM_URL = 'https://knowyourmeme.com/memes/all/page'
 
 # Regex to grab all formatted titles
-RE_TITLE = re.compile(r'<h2> <a href="/memes/.*?">(.*?)</a> </h2>')
+RE_TITLE = re.compile(r'<h3[^>]*>\s*(.*?)\s*</h3>')
 
 # Text to know when we reached end of line
 NO_MORE = 'There are no entries for this category'
@@ -79,7 +79,7 @@ def scrape_pages():
             sys.exit()
 
         # Return if no more results
-        if NO_MORE in response.text:
+        if response.status_code == 404:
             print("\n[*] Reached end of line at page {}. Exiting"
                   .format(page))
             return phrases
