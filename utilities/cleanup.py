@@ -19,6 +19,30 @@ from datetime import timedelta
 MIN_LENGTH = 8
 MAX_LENGTH = 40
 
+# Compiled regex patterns for performance
+MULTIWORD_PATTERN = re.compile('[a-z0-9\'&] [a-z0-9\'&]')
+ALLOWED_CHARS_PATTERN = re.compile("[^a-zA-Z0-9 '&]")
+MULTIPLE_SPACES_PATTERN = re.compile(r'\s\s+')
+QUOTE_REMOVAL_PATTERN = re.compile(r" '([^']*)' ")
+WHITESPACE_PATTERN = re.compile(r'\s+')
+HYPHEN_UNDERSCORE_PATTERN = re.compile(r'[-_]')
+APOSTROPHE_REMOVAL_PATTERN = re.compile("'")
+AND_TO_AMPERSAND_PATTERN = re.compile(' and ')
+AMPERSAND_TO_AND_PATTERN = re.compile('&')
+
+# Accented character patterns
+ACCENTED_A_PATTERN = re.compile('[àáâãäå]')
+ACCENTED_E_PATTERN = re.compile('[èéêë]')
+ACCENTED_I_PATTERN = re.compile('[ìíîï]')
+ACCENTED_O_PATTERN = re.compile('[òóôõö]')
+ACCENTED_U_PATTERN = re.compile('[ùúûü]')
+ACCENTED_N_PATTERN = re.compile('[ñ]')
+ACCENTED_C_PATTERN = re.compile('[ç]')
+ACCENTED_Y_PATTERN = re.compile('[ÿ]')
+
+# Split pattern
+SPLIT_PATTERN = re.compile(r';|,|\.')
+
 def parse_arguments():
     """
     Handles user-passed parameters
@@ -55,7 +79,7 @@ def build_buffer(infile):
             line = escape_encoding(line)
 
             # Split lines with common delimiters like . , or ;
-            for split_line in re.split(r';|,|\.', line):
+            for split_line in SPLIT_PATTERN.split(line):
                 candidates.append(split_line.strip())
 
             # There is a new short list, append each to the buffer
@@ -70,25 +94,28 @@ def handle_punctuation(line):
     """
     clean_lines = []
 
-    # Allow only letters, numbers, spaces, and some punctuation
-    allowed_chars = re.compile("[^a-zA-Z0-9 '&]")
-
     # Gets rid of any remaining special characters in the name
-    line = allowed_chars.sub('', line)
+    line = ALLOWED_CHARS_PATTERN.sub('', line)
 
     # Shrinks down multiple spaces
-    line = re.sub(r'\s\s+', ' ', line)
+    line = MULTIPLE_SPACES_PATTERN.sub(' ', line)
 
-     # If line has an apostrophe make a duplicate without
+    # Strip quotes around line
+    line = line.strip('\'"')
+
+    # Remove quotes around internal segments
+    line = QUOTE_REMOVAL_PATTERN.sub(r' \1 ', line)
+
+    # If line has an apostrophe make a duplicate without deleting it
     if "'" in line:
-        clean_lines.append(re.sub("'", "", line))
+        clean_lines.append(APOSTROPHE_REMOVAL_PATTERN.sub("", line))
 
     # Making duplicating phrases including and / &
     if ' and ' in line:
-        clean_lines.append(re.sub(' and ', ' & ', line))
+        clean_lines.append(AND_TO_AMPERSAND_PATTERN.sub(' & ', line))
     if '&' in line:
-        newline = re.sub('&', ' and ', line)
-        newline = re.sub(r'\s+', ' ', newline).strip()
+        newline = AMPERSAND_TO_AND_PATTERN.sub(' and ', line)
+        newline = WHITESPACE_PATTERN.sub(' ', newline).strip()
         clean_lines.append(newline)
 
     # Add what is left to the list and return it
@@ -101,18 +128,20 @@ def escape_encoding(line):
     """
     line = urllib.parse.unquote(line)       # convert URL encoding like %27
     line = html.unescape(line)              # convert HTML encoding like &apos;
-    line = re.sub(r'\s+', ' ', line).strip() # Remove extra whitespace
+    line = WHITESPACE_PATTERN.sub(' ', line).strip() # Remove extra whitespace
     line = line.lower()                     # convert to lowercase
-    line = re.sub(r'[-_]', ' ', line)       # Change - and _ to spaces
+    line = HYPHEN_UNDERSCORE_PATTERN.sub(' ', line)       # Change - and _ to spaces
 
     # The following lines attempt to remove accented characters, as the
     # tool is focused on Engligh-language passwords.
-    line = re.sub('[àáâãäå]', 'a', line)
-    line = re.sub('[èéêë]', 'e', line)
-    line = re.sub('[ìíîï]', 'i', line)
-    line = re.sub('[òóôõö]', 'o', line)
-    line = re.sub('[ùúûü]', 'u', line)
-    line = re.sub('[ñ]', 'n', line)
+    line = ACCENTED_A_PATTERN.sub('a', line)
+    line = ACCENTED_E_PATTERN.sub('e', line)
+    line = ACCENTED_I_PATTERN.sub('i', line)
+    line = ACCENTED_O_PATTERN.sub('o', line)
+    line = ACCENTED_U_PATTERN.sub('u', line)
+    line = ACCENTED_N_PATTERN.sub('n', line)
+    line = ACCENTED_C_PATTERN.sub('c', line)
+    line = ACCENTED_Y_PATTERN.sub('y', line)
 
     return line
 
@@ -120,9 +149,8 @@ def choose_candidates(line):
     """
     Final check to determine with cleaned phrases to keep
     """
-    match = re.compile('[a-z0-9\'&] [a-z0-9\'&]')
     # Throw out single-word candidates
-    if not match.search(line):
+    if not MULTIWORD_PATTERN.search(line):
         return False
 
     # Thow out too short / too long lines
@@ -135,10 +163,9 @@ def write_file(buffer, outfile):
     """
     Writes choses candidates to an output file
     """
-    file_handler = open(outfile, 'w')
-    for line in buffer:
-        file_handler.write(line.strip()+ '\n')
-    file_handler.close()
+    with open(outfile, 'w') as file_handler:
+        for line in sorted(buffer):
+            file_handler.write(line.strip() + '\n')
 
     outfile_size = str((int(os.path.getsize(outfile)/1000000)))
     print("Wrote to {}: {} MB".format(outfile, outfile_size))
@@ -160,7 +187,7 @@ def main():
                 final.add(newphrase)
     # Writes final set out to file
     write_file(final, args.outfile)
-    elapsed = (time.time() - start)
+    elapsed = time.time() - start
     print("Elapsed time: " + str(timedelta(seconds=elapsed)))
 
 

@@ -79,3 +79,9 @@ With all raw files in the same folder:
 cat ./*.txt | sort -u > raw.txt
 python3 ./cleanup.py raw.txt passphrases.txt
 ```
+
+If you generate a new version and want to compare what's new you can use a command like:
+
+```
+sort new.txt old.txt | uniq -u
+```
